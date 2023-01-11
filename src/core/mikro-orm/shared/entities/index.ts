@@ -1,5 +1,7 @@
 import User from "./User";
 
-export default [
+const entities = [
   User
 ];
+
+export default entities;
