@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white font-body text-typography-black text-xl;
+  }
+}
+
+.Toastify__toast {
+  @apply text-base;
+
+  &-body {
+    @apply pr-4;
+  }
+}

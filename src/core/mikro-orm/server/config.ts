@@ -13,7 +13,7 @@ const config: Options = {
   password: process.env.DB_PASSWORD,
 
   migrations: {
-    path: './src/modules/mikro-orm/server/migrations',
+    path: './src/core/mikro-orm/server/migrations',
     glob: '!(*.d).{js,ts}',
     transactional: true,
     disableForeignKeys: true,
