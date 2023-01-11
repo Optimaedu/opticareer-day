@@ -38,4 +38,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
   );
 });
 
+// This is needed for esling to not generate an error
+// because the component uses forward ref
+Button.displayName = "Button";
+
 export default Button;

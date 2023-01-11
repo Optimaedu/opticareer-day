@@ -28,4 +28,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(({
   );
 });
 
+// This is needed for esling to not generate an error
+// because the component uses forward ref
+Input.displayName = "Input";
+
 export default Input;
