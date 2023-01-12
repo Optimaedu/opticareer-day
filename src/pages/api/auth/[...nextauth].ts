@@ -27,7 +27,7 @@ export const authOptions: NextAuthOptions = {
           return null;
 
         return {
-          id: fromBinaryUUID(user.id),
+          id: user.id,
           name: user.name,
           username: user.username
         }
