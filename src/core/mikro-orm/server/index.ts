@@ -2,7 +2,7 @@ import { Connection, EntityManager, IDatabaseDriver, MikroORM, RequestContext } 
 import { NextApiRequest, NextApiResponse } from 'next';
 import config from './config';
 
-export declare type DefaultEntityManager = EntityManager<IDatabaseDriver<Connection>> | undefined;
+export declare type DefaultEntityManager = EntityManager<IDatabaseDriver<Connection>>;
 export declare type NextMikroOrmApiHandler<T = any> = (req: NextApiRequest, res: NextApiResponse<T>, em: DefaultEntityManager) => unknown | Promise<unknown>;
 
 export const getMikroOrmInstance = async () => {

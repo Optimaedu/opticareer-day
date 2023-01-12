@@ -1,7 +1,9 @@
+import Question from "./Question";
 import User from "./User";
 
 const entities = [
-  User
+  User,
+  Question
 ];
 
 export default entities;

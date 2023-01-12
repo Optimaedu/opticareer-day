@@ -17,6 +17,10 @@ import type { AppProps } from 'next/app';
 import { SessionProvider } from 'next-auth/react';
 import { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
+import NiceModal from '@ebay/nice-modal-react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+ 
+ const queryClient = new QueryClient()
 
 export default function App({
   Component,
@@ -49,14 +53,18 @@ export default function App({
 
   return (
     <SessionProvider session={session}>
-      <Component {...pageProps} />
-      <ToastContainer 
-        position="top-center"
-        autoClose={3000}
-        hideProgressBar={false} 
-        theme="colored"
-        className="w-full px-4 flex flex-col items-center"
-      />
+      <QueryClientProvider client={queryClient}>
+        <NiceModal.Provider>
+          <Component {...pageProps} />
+          <ToastContainer 
+            position="top-center"
+            autoClose={3000}
+            hideProgressBar={false} 
+            theme="colored"
+            className="w-full px-4 flex flex-col items-center"
+          />
+        </NiceModal.Provider>
+      </QueryClientProvider>
     </SessionProvider>
   );
 }

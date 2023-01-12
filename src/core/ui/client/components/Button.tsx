@@ -2,12 +2,14 @@ import React from 'react';
 import cn from 'classnames';
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  loading?: boolean
+  loading?: boolean,
+  variant?: 'primary'|'primary-outlined'
 }
 
 const variants = {
   default: 'flex justify-center items-center px-6 py-3 text-base font-medium rounded ring-0 ring-offset-2 kb-focus:ring-2 outline-none select-none',
   primary: 'bg-primary text-on-primary hover:bg-primary-light ring-primary disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed',
+  "primary-outlined": "border border-primary text-primary-dark hover:bg-primary/10 ring-primary disabled:bg-gray-200/50 disabled:text-gray-300 disabled:cursor-not-allowed disabled:border-0",
   loading: 'bg-gray-200 text-black/0 cursor-wait pointer-events-none'
 }
 
@@ -16,6 +18,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
   className,
   loading,
   disabled,
+  variant='primary',
   ...rest
 }, ref) => {
   return (
@@ -24,7 +27,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
       disabled={loading || disabled}
       className={cn(
         variants.default,
-        { [variants.primary]: !loading },
+        { [variants[variant]]: !loading },
         { [variants.loading]: loading },
         className
       )}

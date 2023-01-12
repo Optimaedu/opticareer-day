@@ -9,6 +9,7 @@ module.exports = {
         "typography-black": "rgba(0, 0, 0, 0.87)",
         primary: "#FFAA33",
         "primary-light": "#FFB133",
+        "primary-dark": "#FF6200",
         "on-primary": "rgba(0, 0, 0, 0.87)"
       },
       fontFamily: {

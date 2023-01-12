@@ -34,7 +34,7 @@ const LoginPage = () => {
   }
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-50 p-4">
+    <div className="flex justify-center items-center h-screen bg-gray-100 p-4">
       <div className="flex flex-col bg-white p-4 sm:p-6 rounded shadow w-full max-w-[400px]">
         <div className="mx-auto"><Logo title="admin" /></div>
 
