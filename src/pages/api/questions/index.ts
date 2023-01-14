@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { DefaultEntityManager, withMikroOrm } from '../../core/mikro-orm/server';
-import Question from '../../core/mikro-orm/shared/entities/Question';
-import handleRequest, { Callback, CallbackWithBody } from '../../core/utils/server/handle-request';
-import { addQuestionBodySchema, AddQuestionBodyType } from '../../modules/quiz/shared/types/AddQuestionBodyType';
+import { DefaultEntityManager, withMikroOrm } from '../../../core/mikro-orm/server';
+import Question from '../../../core/mikro-orm/shared/entities/Question';
+import handleRequest, { Callback, CallbackWithBody } from '../../../core/utils/server/handle-request';
+import { addQuestionBodySchema, AddQuestionBodyType } from '../../../modules/quiz/shared/types/AddQuestionBodyType';
 
 const get: Callback = async ({ response, em }) => {
   const questions = await em.find(Question, {});
@@ -10,11 +10,11 @@ const get: Callback = async ({ response, em }) => {
 }
 
 const post: CallbackWithBody<AddQuestionBodyType> = async ({ response, em, body }) => {
-  em.create(Question, {
+  const question = em.create(Question, {
     content: { sv: body.sv, fi: body.fi }
   });
   await em.flush();
-  response.status(200).json({ body });
+  response.status(200).json({ question });
 }
 
 const handler = (

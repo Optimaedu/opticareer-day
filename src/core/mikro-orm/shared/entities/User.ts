@@ -1,4 +1,4 @@
-import { Entity, Enum, Property, EntityManager, PrimaryKey, OptionalProps } from "@mikro-orm/core";
+import { Entity, Property, PrimaryKey } from "@mikro-orm/core";
 import uuid from "binary-uuid";
 import { UuidBinaryType } from "../types/UuidBinaryType";
 

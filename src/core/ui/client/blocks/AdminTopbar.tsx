@@ -1,7 +1,7 @@
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import Logo from "../components/Logo";
-import UserIcon from "../components/UserIcon";
+import UserIcon from "../components/icons/UserIcon";
 
 const AdminTopbar = () => {
   

@@ -10,10 +10,11 @@ export type DialogProps = {
   title: string,
   onClose: () => void,
   afterClose?: () => void,
-  boxClassName?: string
+  boxClassName?: string,
+  headerActions?: ReactNode
 }
 
-const Dialog = ({open, onClose, afterClose, title, children, boxClassName}: DialogProps) => {
+const Dialog = ({open, onClose, afterClose, title, children, boxClassName, headerActions}: DialogProps) => {
   
   return (
     <AnimatePresence onExitComplete={afterClose}>
@@ -33,7 +34,10 @@ const Dialog = ({open, onClose, afterClose, title, children, boxClassName}: Dial
                 animate={{y: 0, opacity: 1, transition: {ease: "backOut"}}}
                 exit={{y: 200, opacity: 0, transition: {ease: "easeIn", duration: 0.1}}}
               >
-                <h3 className="text-3xl font-light mb-4">{ title }</h3>
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="text-3xl font-light">{ title }</h3>
+                  <div>{ headerActions }</div>
+                </div>
                 <div>
                   { children }
                 </div>

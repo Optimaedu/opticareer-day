@@ -10,7 +10,7 @@ const variants = {
   default: 'flex justify-center items-center px-6 py-3 text-base font-medium rounded ring-0 ring-offset-2 kb-focus:ring-2 outline-none select-none',
   primary: 'bg-primary text-on-primary hover:bg-primary-light ring-primary disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed',
   "primary-outlined": "border border-primary text-primary-dark hover:bg-primary/10 ring-primary disabled:bg-gray-200/50 disabled:text-gray-300 disabled:cursor-not-allowed disabled:border-0",
-  loading: 'bg-gray-200 text-black/0 cursor-wait pointer-events-none'
+  loading: 'bg-gray-200 text-black/0 pointer-events-none'
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({

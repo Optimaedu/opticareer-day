@@ -4,29 +4,40 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import Button from '../../../../core/ui/client/components/Button';
 import Dialog from '../../../../core/ui/client/components/Dialog';
 import Input from '../../../../core/ui/client/components/Input';
-import AddQuestionBodyType, { addQuestionBodySchema } from '../../shared/types/AddQuestionBodyType';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
-import useAddQuestionMutation from '../mutations/useAddQuestionMutation';
+import EditQuestionBodyType, { editQuestionBodySchema } from '../../shared/types/EditQuestionBodyType';
+import useEditQuestionMutation from '../mutations/useEditQuestionMutation';
+import Question from '../../../../core/mikro-orm/shared/entities/Question';
 
-const AddQuestionDialog = NiceModal.create(() => {
+const EditQuestionDialog = NiceModal.create(({question}: {question: Question}) => {
   const modal = useModal();
-  const { register, handleSubmit, formState: { errors } } = useForm<AddQuestionBodyType>({ resolver: yupResolver(addQuestionBodySchema) });
-  const { mutate, isLoading } = useAddQuestionMutation();
+  const { register, handleSubmit, formState: { errors } } = useForm<EditQuestionBodyType>({ 
+    resolver: yupResolver(editQuestionBodySchema),
+    defaultValues: {
+      sv: question.content.sv,
+      fi: question.content.fi
+    }
+  });
+  const { mutate, isLoading } = useEditQuestionMutation();
 
   useEffect(() => {
     if(errors.sv || errors.fi) toast.error("Du måste skriva frågan både på svenska och finska");
   }, [errors]);
 
-  const onSubmit = (body: AddQuestionBodyType) => {
-    mutate(body, {
+  const onSubmit = (body: EditQuestionBodyType) => {
+    mutate({id: question.id, body}, {
       onSuccess: (res) => {
-        toast.info('Frågan är nu skapad');
+        if(res.data.error) {
+          toast.error("Frågan ändrades inte, prova igen");
+          return;
+        }
+        toast.info('Frågan är nu ändrad');
         modal.resolve(res.data.question);
         modal.hide();
       },
       onError: () => {
-        toast.error("Frågan skapades inte, prova igen");
+        toast.error("Frågan ändrades inte, prova igen");
       }
     })
   }
@@ -38,7 +49,7 @@ const AddQuestionDialog = NiceModal.create(() => {
 
   return (
     <Dialog
-      title="Skapa ny fråga"
+      title="Ändra fråga"
       open={modal.visible}
       onClose={onClose}
       afterClose={() => modal.remove()}
@@ -51,10 +62,10 @@ const AddQuestionDialog = NiceModal.create(() => {
 
       <div className='flex justify-between mt-8'>
         <Button disabled={isLoading} variant='primary-outlined' onClick={onClose}>Avbryt</Button>
-        <Button loading={isLoading} onClick={handleSubmit(onSubmit)}>Lägg till</Button>
+        <Button loading={isLoading} onClick={handleSubmit(onSubmit)}>Spara</Button>
       </div>
     </Dialog>
   );
 });
 
-export default AddQuestionDialog;
+export default EditQuestionDialog;
