@@ -7,7 +7,7 @@
     -webkit-tap-highlight-color: transparent;
   }
   body {
-    @apply fixed inset-0 bg-white font-body text-typography-black text-xl;
+    @apply fixed inset-0 overflow-auto bg-white font-body text-typography-black text-xl;
 
     & > div {
       @apply w-full h-full;
