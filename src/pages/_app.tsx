@@ -61,7 +61,7 @@ export default function App({
             autoClose={3000}
             hideProgressBar={false} 
             theme="colored"
-            className="w-full px-4 flex flex-col items-center"
+            className="fixed w-full px-4 flex flex-col items-center"
           />
         </NiceModal.Provider>
       </QueryClientProvider>
