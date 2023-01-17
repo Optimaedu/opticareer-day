@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-export type AddQuestionBodyType = {
+type AddQuestionBodyType = {
   sv: string,
   fi: string
 }

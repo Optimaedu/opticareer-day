@@ -9,8 +9,10 @@ const fetchQuestion = async (id: string) => {
   return response.data;
 };
 
-const useFetchQuestionByIdQuery = (id: string) => (
-  useQuery(['questions', { id }], () => fetchQuestion(id))
+const useQuestionByIdQuery = (id: string) => (
+  useQuery(['questions', { id }], () => fetchQuestion(id), {
+    refetchOnWindowFocus: false
+  })
 );
 
-export default useFetchQuestionByIdQuery;
+export default useQuestionByIdQuery;

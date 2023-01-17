@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-export type UpsertAnswerBodyType = {
+type UpsertAnswerBodyType = {
   sv: string,
   fi: string,
   isCorrect: boolean

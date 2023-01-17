@@ -6,12 +6,12 @@ import AdminTopbar from "../../../core/ui/client/blocks/AdminTopbar";
 import Button from "../../../core/ui/client/components/Button";
 import Spinner from "../../../core/ui/client/components/Spinner";
 import AddQuestionDialog from "../../../modules/quiz/client/dialogs/AddQuestionDialog";
-import useFetchAllQuestions from "../../../modules/quiz/client/queries/useFetchAllQuestionsQuery";
+import useAllQuestions from "../../../modules/quiz/client/queries/useAllQuestionsQuery";
 
 const AdminQuestionsPage = () => {
 
   const router = useRouter();
-  const { data: questionsData, isLoading,  } = useFetchAllQuestions();
+  const { data: questionsData, isLoading,  } = useAllQuestions();
   const questions = questionsData?.questions;
 
   const addQuestion = async () => {

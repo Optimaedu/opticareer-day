@@ -14,14 +14,14 @@ import Spinner from "../../../core/ui/client/components/Spinner";
 import EditQuestionDialog from "../../../modules/quiz/client/dialogs/EditQuestionDialog";
 import UpsertAnswerDialog from "../../../modules/quiz/client/dialogs/UpsertAnswerDialog";
 import useDeleteQuestionMutation from "../../../modules/quiz/client/mutations/useDeleteQuestionMutation";
-import useFetchQuestionByIdQuery from "../../../modules/quiz/client/queries/useFetchQuestionByIdQuery";
+import useQuestionByIdQuery from "../../../modules/quiz/client/queries/useQuestionByIdQuery";
 
 const AdminQuestionIdPage = () => {
 
   const router = useRouter();
   const questionId = router.query.questionId as string;
 
-  const { data: questionData, isLoading } = useFetchQuestionByIdQuery(questionId);
+  const { data: questionData, isLoading } = useQuestionByIdQuery(questionId);
   const { mutate: deleteQuestion, isLoading: isDeleting, isSuccess: isDeleted } = useDeleteQuestionMutation();
 
   const answers = questionData?.question?.answers as Answer[] | undefined;

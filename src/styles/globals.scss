@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
   body {
     @apply bg-white font-body text-typography-black text-xl;
   }

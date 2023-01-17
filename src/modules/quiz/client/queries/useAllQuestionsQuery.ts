@@ -7,8 +7,8 @@ const fetchQuestions = async () => {
   return response.data;
 };
 
-const useFetchAllQuestions = () => (
-  useQuery(['questions'], () => fetchQuestions())
+const useAllQuestions = () => (
+  useQuery(['questions'], fetchQuestions)
 );
 
-export default useFetchAllQuestions;
+export default useAllQuestions;

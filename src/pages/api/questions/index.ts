@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { DefaultEntityManager, withMikroOrm } from '../../../core/mikro-orm/server';
 import Question from '../../../core/mikro-orm/shared/entities/Question';
 import handleRequest, { Callback, CallbackWithBody } from '../../../core/utils/server/handle-request';
-import { addQuestionBodySchema, AddQuestionBodyType } from '../../../modules/quiz/shared/types/AddQuestionBodyType';
+import AddQuestionBodyType, { addQuestionBodySchema } from '../../../modules/quiz/shared/types/AddQuestionBodyType';
 
 const get: Callback = async ({ response, em }) => {
   const questions = await em.find(Question, {});

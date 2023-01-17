@@ -1,3 +1,4 @@
+import { RequestContext } from '@mikro-orm/core';
 import { fromBinaryUUID } from 'binary-uuid';
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -17,7 +18,12 @@ export const authOptions: NextAuthOptions = {
       credentials: { },
       async authorize(credentials, req) {
         const {username, password} = credentials as CredentialsInputType;
-        const em = (await getMikroOrmInstance()).em.fork();
+        const orm = await getMikroOrmInstance();
+        
+        RequestContext.create(orm.em, async () => {
+
+        });
+        const em = orm.em.fork();
         const user = await em.findOne(User, { username });
 
         if(!user)
