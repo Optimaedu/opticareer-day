@@ -2,7 +2,6 @@ import { Entity, Property, PrimaryKey, OptionalProps, ManyToOne, Unique } from "
 import uuid from "binary-uuid";
 import { UuidBinaryType } from "../types/UuidBinaryType";
 import Answer from "./Answer";
-import Attempt from "./Attempt";
 import Question from "./Question";
 
 @Entity()
@@ -14,8 +13,8 @@ class AttemptAnswer {
   @PrimaryKey({ type: UuidBinaryType })
   id: string = uuid().uuid;
 
-  @ManyToOne({ onDelete: 'cascade' })
-  attempt!: Attempt;
+  @ManyToOne({ entity: 'Attempt', onDelete: 'cascade' })
+  attempt!: unknown;
   
   @ManyToOne()
   question!: Question;

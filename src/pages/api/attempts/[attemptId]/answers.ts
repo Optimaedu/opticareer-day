@@ -39,9 +39,14 @@ const post: CallbackWithBody<AttemptAnswerBodyType> = async ({ request, response
       question => !(attemptAnswers.find(aq => aq.question.id === question.id))
     );
     attempt.nextQuestion = unansweredQuestions[Math.floor(Math.random() * unansweredQuestions.length)];
-    await em.flush();
-    attempt.nextQuestion = attempt.nextQuestion ? attempt.nextQuestion.id as any : null;
   }
+
+  if(!attempt.nextQuestion) {
+    attempt.endedAt = new Date();
+  }
+
+  await em.flush();
+  attempt.nextQuestion = attempt.nextQuestion ? attempt.nextQuestion.id as any : null;
 
   // Get correct answers
   const answers = await em.find(Answer, { question: body.questionId });

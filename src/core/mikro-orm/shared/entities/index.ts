@@ -8,8 +8,8 @@ const entities = [
   User,
   Question,
   Answer,
-  Attempt,
-  AttemptAnswer
+  AttemptAnswer,
+  Attempt
 ];
 
 export default entities;
