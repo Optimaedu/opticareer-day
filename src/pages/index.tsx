@@ -1,117 +1,65 @@
 import Link from "next/link";
 import Logo from "../core/ui/client/components/Logo";
-import abilitaLogo from "../../public/abilita-logo.png";
-import balticLogo from "../../public/baltic-logo.jpg";
-import beamexLogo from "../../public/beamex-logo.png";
-import billerudLogo from "../../public/billerud-logo.jpg";
-import dobraLogo from "../../public/dobra-logo.png";
-import ekeriLogo from "../../public/ekeri-logo.jpg";
-import fluidBagLogo from "../../public/fluidbag-logo.jpg";
-import kaiserLogo from "../../public/kaiser-logo.jpg";
-import kpeduLogo from "../../public/kpedu-logo.png";
-import kpoLogo from "../../public/kpo-logo.png";
-import kronosLogo from "../../public/kronos-logo.jpg";
-import lofsLogo from "../../public/löfs-logo.jpg";
-import mirkaLogo from "../../public/mirka-logo.jpg";
-import mkmLogo from "../../public/mkm-logo.png";
-import noogaLogo from "../../public/nooga-logo.jpg";
-import nlLogo from "../../public/nordiclights-logo.jpg";
-import ostpLogo from "../../public/ostp-logo.jpg";
-import ostromapLogo from "../../public/ostromap-logo.png";
-import ovphLogo from "../../public/ovph-logo.jpg";
-import raniLogo from "../../public/rani-logo.jpg";
-import solvingLogo from "../../public/solving-logo.jpg";
-import sundstromLogo from "../../public/sundström-logo.jpg";
-import upmLogo from "../../public/upm-logo.png";
+import DoubleArrowDownIcon from "../core/ui/client/components/icons/DoubleArrowDownIcon";
+
+const companyLogos = [
+  { src: "/logos/abilita-logo.png", name: "Abilita" },
+  { src: "/logos/baltic-logo.jpg", name: "Baltic" },
+  { src: "/logos/beamex-logo.png", name: "Beamex" },
+  { src: "/logos/billerud-logo.jpg", name: "Billerud" },
+  { src: "/logos/dobra-logo.png", name: "Dobra" },
+  { src: "/logos/ekeri-logo.jpg", name: "Ekero" },
+  { src: "/logos/fluidbag-logo.jpg", name: "Fluidbag" },
+  { src: "/logos/kaiser-logo.jpg", name: "Kaiser" },
+  { src: "/logos/kpedu-logo.png", name: "kpedu" },
+  { src: "/logos/kpo-logo.png", name: "KPO" },
+  { src: "/logos/kronos-logo.jpg", name: "Kronos" },
+  { src: "/logos/Lofs-logo.jpg", name: "Löfs" },
+  { src: "/logos/mirka-logo.jpg", name: "Mirka" },
+  { src: "/logos/mkm-logo.png", name: "MKM Solutions" },
+  { src: "/logos/nooga-logo.jpg", name: "Nooga" },
+  { src: "/logos/nordiclights-logo.jpg", name: "Nordic lights" },
+  { src: "/logos/ostp-logo.jpg", name: "OSTP" },
+  { src: "/logos/ostromap-logo.png", name: "Ostromap" },
+  { src: "/logos/ovph-logo.jpg", name: "Österbottens välfärdsområde" },
+  { src: "/logos/rani-logo.jpg", name: "Rani" },
+  { src: "/logos/solving-logo.jpg", name: "Solving" },
+  { src: "/logos/sundstrom-logo.jpg", name: "Sundström" },
+  { src: "/logos/upm-logo.png", name: "UPM" }
+];
+
+console.log(companyLogos);
 
 const IndexPage = () => {
   return (
-    <div className="w-full bg-white flex justify-center items-center flex-col pb-8">
-      <div className="w-11/12 sm:w-3/5 mt-40 flex justify-center items-center flex-col ">
+    <div className="flex flex-col items-center h-full p-4">
+     <div className="flex flex-col justify-center items-center h-[80vh]">
         <Logo />
-        <Link className="hover:opacity-90 hover:border-b border-gray-500 mt-5 font-medium text-primary-dark" href="/">
+        <Link className="hover:opacity-90 hover:text-primary mt-4 font-medium text-primary-dark" href="/">
           Vaihda kieli suomeksi</Link>
-      </div>
-      <div className="w-4/5 md:w-3/5 flex justify-center sm:justify-between items-center flex-col 2xl:flex-row mt-20">
-        <p className="sm:max-w-3xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat possimus doloribus voluptate mollitia aut similique nulla quisquam excepturi explicabo laboriosam exercitationem corporis hic, suscipit sapiente quaerat a nihil fuga et fugiat incidunt nam earum doloremque. Amet dolorum iusto labore laborum voluptatibus veritatis, totam, ipsum quidem alias, blanditiis ut dolore debitis! Omnis consequuntur fugit libero vero quos ipsum molestias distinctio? Necessitatibus, molestiae sed illum porro quo voluptate est quia quas excepturi vel neque, ea error perferendis officia ullam. Perferendis vitae fuga modi provident officia quam. Dolor, quibusdam. Sequi officiis porro, repudiandae, odio cupiditate veritatis autem magnam dignissimos modi error nisi illum?</p>
 
-        <a href="/quiz"><button className="relative flex justify-center items-center mt-10 2xl:mt-0 px-8 py-4 rounded-full bg-primary text-on-primary font-medium select-none outline-0 hover:bg-primary-light disabled:bg-gray-300">Gå till quiz</button></a>
-      </div>
+        <h1 className="text-2xl md:text-3xl font-light mb-10 mt-10 sm:mt-20">Välkommen till OptiCareer-Day!</h1>
 
-      <div className="w-3/5 flex flex-wrap items-center justify-center mt-12 md:mt-20 gap-1 md:gap-12">
-        <div className="flex items-center justify-center">
-          <img className="object-contain w-80 h-40" src={abilitaLogo.src} alt="Abilita" />
+        <p className="w-full max-w-[700px] text-lg text-center">Hoppas att du har eller kommer att ha en lärorik och trevlig dag hos oss. Som en del av programmet kommer vi att ha ett quiz där du kan testa dina kunskaper om nejdens företag och vinna fina priser.</p>
+
+        <Link href="/quiz" className="relative flex justify-center items-center mt-12 px-14 py-5 rounded-full bg-primary text-on-primary font-medium select-none outline-0 hover:bg-primary-light disabled:bg-gray-300">Gå till quizet</Link>
+     </div>
+
+     <div className="flex flex-col items-center md:mt-6 w-full max-w-[1280px]">
+        <h3 className="font-medium w-full text-center py-4">Företag som deltar i evenemanget</h3>
+        <div className="fill-typography-black mb-8">
+          <DoubleArrowDownIcon size={40} />
         </div>
-        <div className="flex items-center justify-center">
-          <img className="object-contain w-80 h-52" src={balticLogo.src} alt="Baltic" />
+        <div className="flex flex-wrap justify-center gap-20 w-full max-w-[1000px]">
+          {companyLogos.map(logo => (
+            <div key={logo.src} className="flex items-center justify-center w-[250px]">
+              <img src={logo.src} alt={logo.name} className="w-full h-full object-contain" />
+            </div>
+          ))}
         </div>
-        <div className="flex items-center justify-center">
-          <img className="object-contain w-80 h-52" src={beamexLogo.src} alt="Beamex" />
-        </div>
-        <div className="flex items-center justify-center">
-          <img className="object-contain w-80 h-52" src={billerudLogo.src} alt="Billerud" />
-        </div>
-        <div className="flex items-center justify-center">
-          <img className="object-contain w-80 h-52" src={dobraLogo.src} alt="Dobra" />
-        </div>
-        <div className="flex items-center justify-center">
-          <img className="object-contain w-80 h-52" src={ekeriLogo.src} alt="Ekeri" />
-        </div>
-        <div className="flex items-center justify-center">
-          <img className="object-contain w-80 h-52" src={fluidBagLogo.src} alt="Fluid Bag" />
-        </div>
-        <div className="flex items-center justify-center">
-          <img className="object-contain w-80 h-52" src={kaiserLogo.src} alt="Kaiser Eur-Mark" />
-        </div>
-        <div className="flex items-center justify-center">
-          <img className="object-contain w-80 h-52" src={kpeduLogo.src} alt="Kpedu" />
-        </div>
-        <div className="flex items-center justify-center">
-          <img className="object-contain w-80 h-52" src={kpoLogo.src} alt="KPO" />
-        </div>
-        <div className="flex items-center justify-center">
-          <img className="object-contain w-80 h-52" src={kronosLogo.src} alt="Kronos" />
-        </div>
-        <div className="flex items-center justify-center">
-          <img className="object-contain w-80 h-52" src={lofsLogo.src} alt="Löfs" />
-        </div>
-        <div className="flex items-center justify-center">
-          <img className="object-contain w-80 h-52" src={mirkaLogo.src} alt="Mirka" />
-        </div>
-        <div className="flex items-center justify-center">
-          <img className="object-contain w-80 h-52" src={mkmLogo.src} alt="MKM" />
-        </div>
-        <div className="flex items-center justify-center">
-          <img className="object-contain w-80 h-52" src={noogaLogo.src} alt="Nooga" />
-        </div>
-        <div className="flex items-center justify-center">
-          <img className="object-contain w-80 h-52" src={nlLogo.src} alt="Nordic Lights" />
-        </div>
-        <div className="flex items-center justify-center">
-          <img className="object-contain w-80 h-52" src={ostpLogo.src} alt="OSTP" />
-        </div>
-        <div className="flex items-center justify-center">
-          <img className="object-contain w-80 h-52" src={ostromapLogo.src} alt="Ostromap" />
-        </div>
-        <div className="flex items-center justify-center">
-          <img className="object-contain w-80 h-52" src={ovphLogo.src} alt="Ovph" />
-        </div>
-        <div className="flex items-center justify-center">
-          <img className="object-contain w-80 h-52" src={raniLogo.src} alt="Rani" />
-        </div>
-        <div className="flex items-center justify-center">
-          <img className="object-contain w-80 h-52" src={solvingLogo.src} alt="Solving" />
-        </div>
-        <div className="flex items-center justify-center">
-          <img className="object-contain w-80 h-52" src={sundstromLogo.src} alt="Sundström" />
-        </div>
-        <div className="flex items-center justify-center">
-          <img className="object-contain w-80 h-52" src={upmLogo.src} alt="UPM" />
-        </div>
-      </div>
+     </div>
     </div>
   );
 }
-
 
 export default IndexPage;

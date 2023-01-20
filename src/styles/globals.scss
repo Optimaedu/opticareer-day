@@ -4,14 +4,13 @@
 
 @layer base {
   html {
-    @apply overflow-auto;
     -webkit-tap-highlight-color: transparent;
   }
   body {
-    @apply absolute inset-0 overflow-auto bg-white font-body text-typography-black text-xl;
+    @apply absolute inset-0 overflow-auto flex flex-col bg-white font-body text-typography-black text-xl;
 
     & > div {
-      @apply w-full h-full;
+      @apply grow;
     }
   }
 }
