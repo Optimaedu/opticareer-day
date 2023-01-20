@@ -14,7 +14,7 @@ const companyLogos = [
   { src: "/logos/kpedu-logo.png", name: "kpedu" },
   { src: "/logos/kpo-logo.png", name: "KPO" },
   { src: "/logos/kronos-logo.jpg", name: "Kronos" },
-  { src: "/logos/Lofs-logo.jpg", name: "Löfs" },
+  { src: "/logos/lofs-logo.jpg", name: "Löfs" },
   { src: "/logos/mirka-logo.jpg", name: "Mirka" },
   { src: "/logos/mkm-logo.png", name: "MKM Solutions" },
   { src: "/logos/nooga-logo.jpg", name: "Nooga" },
