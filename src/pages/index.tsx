@@ -53,7 +53,7 @@ const IndexPage = () => {
         <div className="flex flex-wrap justify-center gap-20 w-full max-w-[1000px]">
           {companyLogos.map(logo => (
             <div key={logo.src} className="flex items-center justify-center w-[250px]">
-              <img src={logo.src} alt={logo.name} className="w-full h-full object-contain" />
+              <img src={logo.src} alt={logo.name} className="object-contain" />
             </div>
           ))}
         </div>
