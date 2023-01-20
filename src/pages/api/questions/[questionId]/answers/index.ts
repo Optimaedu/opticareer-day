@@ -13,7 +13,7 @@ const post: CallbackWithBody<UpsertAnswerBodyType> = async ({ request, response,
   }
   const question = em.getReference(Question, questionId);
   const answer = em.create(Answer, {
-    content: { sv: body.sv, fi: body.sv },
+    content: { sv: body.sv, fi: body.fi },
     isCorrect: body.isCorrect,
     question
   });
