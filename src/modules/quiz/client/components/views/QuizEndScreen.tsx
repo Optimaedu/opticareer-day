@@ -1,3 +1,4 @@
+import { useTranslation } from "next-i18next";
 import Logo from "../../../../../core/ui/client/components/Logo";
 
 type QuizEndScreenProps = {
@@ -6,13 +7,15 @@ type QuizEndScreenProps = {
 }
 
 const QuizEndScreen = ({ correctAnswersCount, questionCount }: QuizEndScreenProps) => {
+  const {t} = useTranslation();
   return (
     <div className="flex flex-col items-center w-full max-w-[700px] p-4">
       <Logo title="quiz" />
 
       <div className="mt-8 sm:mt-16 space-y-4 text-center">
-        <p>Tack för att du svarat på vårt quiz!</p>
-        <p>Du hade <strong>{ correctAnswersCount } rätt</strong> av <strong>{ questionCount } frågor</strong>.</p>
+        <p>{t("quiz-end-message")}</p>
+        <p>{t("quiz-end-correct-answers").replace("{?}", correctAnswersCount.toString())}</p>
+        <p>{t("quiz-end-incorrect-answers").replace("{?}", (questionCount - correctAnswersCount).toString())}</p>
       </div>
     </div>
   );

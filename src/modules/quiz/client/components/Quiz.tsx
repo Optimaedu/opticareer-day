@@ -1,5 +1,5 @@
-import { AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { useTranslation } from "next-i18next";
 import Attempt from "../../../../core/mikro-orm/shared/entities/Attempt";
 import Question from "../../../../core/mikro-orm/shared/entities/Question";
 import useLocalStorage from "../../../../core/utils/client/useLocalStorage";

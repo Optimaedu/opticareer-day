@@ -15,6 +15,7 @@ import '../styles/fonts.scss';
 
 import type { AppProps } from 'next/app';
 import { SessionProvider } from 'next-auth/react';
+import { appWithTranslation } from 'next-i18next';
 import { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 import NiceModal from '@ebay/nice-modal-react';
@@ -22,7 +23,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
  
  const queryClient = new QueryClient()
 
-export default function App({
+function App({
   Component,
   pageProps: { session, ...pageProps },
 }: AppProps) {
@@ -68,3 +69,5 @@ export default function App({
     </SessionProvider>
   );
 }
+
+export default appWithTranslation(App);

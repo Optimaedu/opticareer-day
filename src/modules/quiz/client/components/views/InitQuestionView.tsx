@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'next-i18next';
 import Question from '../../../../../core/mikro-orm/shared/entities/Question';
 import Button from '../../../../../core/ui/client/components/Button';
 import useQuestionByIdQuery from '../../queries/useQuestionByIdQuery';
@@ -20,6 +21,7 @@ const InitQuestionView = ({
   onFailedTryAgain
 }: InitQuestionViewProps) => {
 
+  const {t} = useTranslation();
   const [ mountedAt ] = useState(new Date());
   const [ animationCompleted, setAnimationCompleted ] = useState(false);
   const [ initFailed, setInitFailed ] = useState(false);
@@ -56,10 +58,10 @@ const InitQuestionView = ({
           exit={{ x:'-100%', transition: { ease: 'easeIn', duration: 0.2 } }}
           onAnimationComplete={() => setAnimationCompleted(true)}
         >
-          { !initFailed && <span className='font-light text-3xl'>Fråga {totalAnswered + 1} / {totalQuesitons}</span> }
+          { !initFailed && <span className='font-light text-3xl'>{t("quiz-question")} {totalAnswered + 1} / {totalQuesitons}</span> }
           { initFailed && <div className='flex flex-col items-center space-y-4'>
-            <span className='font-light text-3xl'>Något gick fel</span>
-            <Button onClick={onFailedTryAgain}>Prova igen</Button>
+            <span className='font-light text-3xl'>{t("quiz-error-something-went-wrong")}</span>
+            <Button onClick={onFailedTryAgain}>{t("quiz-error-try-again")}</Button>
           </div>}
         </motion.div>
       ) }

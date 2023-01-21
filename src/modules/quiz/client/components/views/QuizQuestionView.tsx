@@ -5,6 +5,7 @@ import Answer from '../../../../../core/mikro-orm/shared/entities/Answer';
 import Question from "../../../../../core/mikro-orm/shared/entities/Question"
 import useAttemptAnswerMutation from '../../mutations/useAttemptAnswerMutation';
 import { QuizStateData } from '../Quiz';
+import { useTranslation } from 'next-i18next';
 
 type QuizQuestionViewProps = {
   attemptId: string,
@@ -18,6 +19,7 @@ const QuizQuestionView = ({
   onFinished
 }: QuizQuestionViewProps) => {
 
+  const {t, i18n} = useTranslation();
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [answeredId, setAnsweredId] = useState('');
   const [correctAnswers, setCorrectAnswers] = useState<string[]>([]);
@@ -83,7 +85,7 @@ const QuizQuestionView = ({
           exit={{ x:'-100%', transition: { ease: 'easeIn', duration: 0.2 } }}
         >
           <div className='max-w-[700px]'>
-            <p className="text-2xl text-center">{ question.content.sv }</p>
+            <p className="text-2xl text-center">{ question.content[i18n.language as 'sv'|'fi'] }</p>
               { answers.length > 0 && (
                 <motion.div
                   className={cn(
@@ -113,7 +115,7 @@ const QuizQuestionView = ({
                       )}
                       onClick={() => onAnswer(answer.id)}
                     >
-                      { answer.content.sv }
+                      { answer.content[i18n.language as 'sv'|'fi'] }
                     </button>
                   )) }
                 </motion.div>
