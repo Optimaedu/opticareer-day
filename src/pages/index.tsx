@@ -11,16 +11,21 @@ const companyLogos = [
   { src: "/logos/beamex-logo.png", name: "Beamex" },
   { src: "/logos/billerud-logo.jpg", name: "Billerud" },
   { src: "/logos/dobra-logo.png", name: "Dobra" },
+  { src: "/logos/nautor-logo.png", name: "Nautor Svan" },
   { src: "/logos/ekeri-logo.jpg", name: "Ekero" },
+  { src: "/logos/fresh-logo.png", name: "Fresh" },
   { src: "/logos/fluidbag-logo.jpg", name: "Fluidbag" },
+  { src: "/logos/herrmans-logo.png", name: "Herrmans" },
   { src: "/logos/kaiser-logo.jpg", name: "Kaiser" },
   { src: "/logos/kpedu-logo.png", name: "kpedu" },
   { src: "/logos/kpo-logo.png", name: "KPO" },
+  { src: "/logos/upm-logo.png", name: "UPM" },
   { src: "/logos/kronos-logo.jpg", name: "Kronos" },
+  { src: "/logos/amada-logo.png", name: "Amada" },
+  { src: "/logos/elho-logo.png", name: "Elho" },
   { src: "/logos/lofs-logo.jpg", name: "Löfs" },
   { src: "/logos/mirka-logo.jpg", name: "Mirka" },
   { src: "/logos/mkm-logo.png", name: "MKM Solutions" },
-  { src: "/logos/nooga-logo.jpg", name: "Nooga" },
   { src: "/logos/nordiclights-logo.jpg", name: "Nordic lights" },
   { src: "/logos/ostp-logo.jpg", name: "OSTP" },
   { src: "/logos/ostromap-logo.png", name: "Ostromap" },
@@ -28,7 +33,7 @@ const companyLogos = [
   { src: "/logos/rani-logo.jpg", name: "Rani" },
   { src: "/logos/solving-logo.jpg", name: "Solving" },
   { src: "/logos/sundstrom-logo.jpg", name: "Sundström" },
-  { src: "/logos/upm-logo.png", name: "UPM" }
+  { src: "/logos/nooga-logo.jpg", name: "Nooga" },
 ];
 
 const IndexPage = () => {
