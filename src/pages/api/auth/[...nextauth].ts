@@ -40,6 +40,21 @@ export const authOptions: NextAuthOptions = {
       }
     })
   ],
+  callbacks: {
+    session: async ({ session, token }) => {
+      if (session?.user) {
+        // @ts-ignore
+        session.user.id = token.id;
+      }
+      return session;
+    },
+    jwt: async ({ user, token }) => {
+      if (user) {
+        token.id = user.id;
+      }
+      return token;
+    },
+  },
   pages: {
     signIn: '/login',
     signOut: '/logout'

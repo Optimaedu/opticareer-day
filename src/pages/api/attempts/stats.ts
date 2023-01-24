@@ -24,9 +24,8 @@ const get: Callback = async ({ response, em }) => {
   const results: ResultType[] = [];
 
   attempts.forEach(attempt => {
-    let totalCorrect = attempt.attemptAnswers.toArray()
-      .map(aa => (aa.answer.isCorrect ? 1 : 0) as number)
-      .reduce((a, b) => a + b);
+    const totalCorrectArr = attempt.attemptAnswers.toArray().map(aa => (aa.answer.isCorrect ? 1 : 0) as number);
+    let totalCorrect = totalCorrectArr.length < 1 ? 0 : totalCorrectArr.reduce((a, b) => a + b);
 
     results.push({
       attemptId: attempt.id,
@@ -49,7 +48,7 @@ const handler = (
 (
   request, response, em,
   {
-    get: { callback: get }
+    get: { callback: get, private: true }
   }
 );
 

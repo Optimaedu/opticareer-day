@@ -2,6 +2,7 @@ import { EntityManager, Connection, IDatabaseDriver } from "@mikro-orm/core";
 import { NextApiRequest, NextApiResponse } from "next";
 import { getSession } from "next-auth/react";
 import * as yup from 'yup';
+import User from "../../mikro-orm/shared/entities/User";
 
 type EntityManagerType = EntityManager<IDatabaseDriver<Connection>>;
 
@@ -38,6 +39,10 @@ const handleRequest = async <TPost = any, TPut = any, TPatch = any>(
     if(!session || !session.user) {
       return response.status(401).json({error: 'Permission denied'})
     }
+    // @ts-ignore
+    const user = await em.findOne(User, {id: session.user.id});
+    if(!user) 
+      return response.status(401).json({error: 'Permission denied'});
   }
 
   if(method.bodyValidator) {
