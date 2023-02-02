@@ -14,5 +14,5 @@
   }
 }
 
-@include load-font('Roboto', 'roboto', [300, 400, 500, 700, 900], [normal, italic]);
+@include load-font('Roboto', 'roboto', [300, 400, 500, 700], [normal, italic]);
 @include load-font('Roboto Condensed', 'roboto-condensed', [400, 700], [normal]);
